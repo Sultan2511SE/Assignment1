@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #050511;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#main-header {
+    background-color:   #1f2833;
+    padding: 20px;
+    border-bottom: 2px solid #00f7ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+.nav-menu a {
+    color: #66fcf1;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+.nav-menu a:hover {
+    color: #1f2833;
+    text-shadow: 0 0 8px #00f7ff;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+.hero-section p{
+    font-size: 25px;
+    font-weight: bold;
+}
+.hero-section h1 {
+    font-size: 40px;
+    color: #66fcf1;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #00f7ff;
+    margin-bottom: 15px;
+}
+.hero-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #00f7ff;
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+    margin: 20px 0 40px 0;
+}
+.card {
+    background-color: #1f2833;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #00f7ff;
+    margin-top: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 247, 255, 0.3);
+}
+
+.card h3 {
+    color: #66fcf1;
+    margin-bottom: 10px;
+}
+footer {
+    background-color: #1f2833;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #00f7ff;
+    margin-top: 40px;
+    color: #c5c6c7;
+    font-size: 0.9rem;
+}
+.second-img {
+    margin: 20px 0px;
+}
+.location {
+    display: flex;
+}
+.location h1 {
+    margin: 70px 20px;
+    
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+.language, .number {
+    background-color: #0b0c10;
+    color: #00f7ff;
+    border: 1px solid #00f7ff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.language option, .number option {
+    background-color: #1f2833;
+    color: #ffffff;
+}
