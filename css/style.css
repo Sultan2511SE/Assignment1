@@ -406,3 +406,13 @@ footer {
     color: #00f7ff;
     text-decoration: underline;
 }
+
+
+.round-logo {
+    width: 93px; 
+    height: 93px; 
+    border-radius: 50%; 
+    border: 3px solid #8b5cf6;
+    object-fit: cover;
+    
+}
