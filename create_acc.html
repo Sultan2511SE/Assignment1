@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FortGame CyberClub - Create Account</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="main-header">
+         <a href="index.html" class="logo">
+    <img src="images/admin.jpg" alt="FortGame Logo" class="round-logo"> 
+        </a>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="create_acc.html">Create Account</a>
+            <a href="rooms.html">Gaming Rooms</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+
+         <div class="header-actions">
+        <select class="language">
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+            <option value="kz">KZ</option>
+        </select>
+
+        <select class="number">
+            <option value="">Contact Us</option>
+            <option value="">+7 777 777 77 77</option>
+        </select>
+    </div>
+    </header>
+    <main class="container">
+        <section class="create-account-section">
+            <h1>Create Your Account</h1>
+            <p class="form-description">Join FortGame and unlock exclusive gaming benefits.</p>
+            <form action="submit_account.php" method="POST" class="create-account-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Create Account</button>
+            </form>
+        </section>
+        <section class="info-section">
+            <div class="card">
+                <h3>Benefits of Creating an Account</h3>
+                <ul>
+                    <li>Access to VIP Zone with discounts</li>
+                    <li>Exclusive promotions and offers</li>
+                    <li>Track your gaming history and achievements</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="column col-lg-6 col-md-12 col-sm-12">
+                        <p>Created by DZHIGIandDIAS: Sultan Uazhanov, Kaisar Arysbek, Dias Turdaly</p>
+                    </div>
+                    <div class="column col-lg-6 col-md-12 col-sm-12">
+                        <p>&copy; 2026 FortGame CyberClub. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>
