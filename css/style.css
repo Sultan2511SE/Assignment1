@@ -44,7 +44,7 @@ body.bootstrap-page {
 
 /* ---------- Типографика ---------- */
 .bootstrap-page h1 {
-    font-size: clamp(1.7rem, 1.2rem + 2.2vw, 2.6rem);
+    font-size: 1.6rem;              /* mobile */
     font-weight: 800;
     letter-spacing: 0.04em;
     line-height: 1.2;
@@ -53,7 +53,7 @@ body.bootstrap-page {
 }
 
 .bootstrap-page h2 {
-    font-size: clamp(1.35rem, 1.1rem + 1vw, 1.9rem);
+    font-size: 1.3rem;              /* mobile */
     font-weight: 700;
     color: var(--violet) !important;
     margin-bottom: 1rem;
@@ -65,7 +65,21 @@ body.bootstrap-page {
     color: var(--text) !important;
 }
 
-.bootstrap-page p { font-size: 1rem; }
+.bootstrap-page p { font-size: 0.95rem; }   /* mobile */
+
+/* Tablet: от 768px */
+@media (min-width: 768px) {
+    .bootstrap-page h1 { font-size: 2.1rem; }
+    .bootstrap-page h2 { font-size: 1.6rem; }
+    .bootstrap-page p  { font-size: 1rem; }
+}
+
+/* Desktop: от 1024px */
+@media (min-width: 1024px) {
+    .bootstrap-page h1 { font-size: 2.6rem; }
+    .bootstrap-page h2 { font-size: 1.9rem; }
+    .bootstrap-page p  { font-size: 1.1rem; }
+}
 
 .bootstrap-page .text-secondary { color: var(--text-muted) !important; }
 .bootstrap-page .text-light { color: var(--text) !important; }
@@ -385,6 +399,46 @@ body.bootstrap-page {
 }
 
 .room-link:hover { color: #00f7ff; text-decoration: underline; }
+
+/* ---------- Карусель ---------- */
+.club-carousel {
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-color: #000;
+}
+
+.club-carousel .carousel-item img {
+    height: clamp(220px, 50vw, 480px);
+    object-fit: cover;
+}
+
+.club-carousel .carousel-caption {
+    left: 0; right: 0; bottom: 0;
+    padding: 2.5rem 3.5rem 2.75rem;
+    background: linear-gradient(to top, rgba(8, 8, 18, 0.92), rgba(8, 8, 18, 0));
+}
+
+.club-carousel .carousel-caption h3 { color: #fff !important; margin-bottom: 0.25rem; }
+.club-carousel .carousel-caption p { color: #e2e2f0 !important; font-size: 0.95rem; }
+
+.club-carousel .carousel-indicators [data-bs-target] {
+    width: 10px; height: 10px; border-radius: 50%; border: 0;
+    background-color: var(--cyan);
+}
+
+.club-carousel .carousel-control-prev,
+.club-carousel .carousel-control-next { width: 9%; }
+
+/* ---------- Форма: input-group и radio ---------- */
+.bootstrap-page .input-group-text {
+    background-color: var(--surface-2) !important;
+    color: var(--cyan) !important;
+    border: 1px solid var(--border-strong) !important;
+}
+
+.bootstrap-page legend.form-label { float: none; width: auto; margin-bottom: 0.5rem; }
 
 /* ---------- Подвал (одинаковый на всех страницах) ---------- */
 .bootstrap-page .main-footer {

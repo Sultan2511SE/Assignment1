@@ -1,0 +1,79 @@
+/* Assignment #3, Part 1 — только CSS media queries, без Bootstrap.
+   Mobile-first: базовые стили для телефона, дальше расширяем. */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    background-color: #0b0b16;
+    color: #f2f2fa;
+    line-height: 1.65;
+}
+
+.page-header,
+.page-footer {
+    background-color: #111122;
+    padding: 16px 20px;
+    text-align: center;
+}
+
+.page-header { border-bottom: 1px solid #2d2d52; }
+.page-footer { border-top: 1px solid #2d2d52; margin-top: 40px; color: #8888a8; }
+.page-footer p { margin: 4px 0; }
+
+a { color: #00e5ff; font-weight: 600; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrapper { width: 92%; max-width: 1200px; margin: 0 auto; padding: 24px 0; }
+
+/* ===== Task 1. Responsive typography ===== */
+h1 { font-size: 22px; color: #a78bfa; }     /* mobile  */
+h2 { font-size: 18px; color: #a78bfa; }
+p  { font-size: 14px; color: #c5c5d8; }
+
+@media (min-width: 768px) {                 /* tablet  */
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; }
+    p  { font-size: 16px; }
+}
+
+@media (min-width: 1024px) {                /* desktop */
+    h1 { font-size: 42px; }
+    h2 { font-size: 30px; }
+    p  { font-size: 18px; }
+}
+
+/* ===== Task 2. Card group ===== */
+.cards {
+    display: flex;
+    flex-direction: column;     /* mobile: стопкой */
+    gap: 20px;
+}
+
+.cards .card {
+    background-color: #151528;
+    border: 1px solid #2d2d52;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.cards .card:hover { border-color: #00e5ff; transform: translateY(-4px); }
+.cards .card h3 { margin-top: 0; color: #00e5ff; }
+.cards .card p { margin-bottom: 0; }
+
+@media (min-width: 768px) {                 /* tablet: по две в ряд */
+    .cards { flex-direction: row; flex-wrap: wrap; }
+    .cards .card { width: calc(50% - 10px); }
+}
+
+@media (min-width: 1024px) {                /* desktop: по три в ряд */
+    .cards .card { width: calc(33.333% - 14px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cards .card { transition: none; }
+    .cards .card:hover { transform: none; }
+}
