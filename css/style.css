@@ -625,3 +625,174 @@ footer {
 .gallery-item:hover .gallery-caption {
     transform: translateY(0);
 }
+
+
+/* Assignment #3 - Bootstrap pages, restyled to match Assignment #1's look */
+.bootstrap-page {
+    font-family: Arial, sans-serif;
+    background-color: #0b0b16;
+}
+
+.bootstrap-page .container {
+    width: 100%;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Navbar -> looks like #main-header */
+.bootstrap-page .navbar {
+    background-color: #111122 !important;
+    border-bottom: 1px solid #29294a !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.bootstrap-page .navbar-brand {
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+.bootstrap-page .nav-link {
+    color: #ffffff !important;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.bootstrap-page .nav-link:hover,
+.bootstrap-page .nav-link.active {
+    color: #00e5ff !important;
+}
+
+.bootstrap-page .navbar-toggler {
+    border-color: #393966;
+}
+
+/* Form fields / language select -> match .language/.number and account form inputs */
+.bootstrap-page .form-select,
+.bootstrap-page .form-control {
+    background-color: #1b1b32 !important;
+    color: #ffffff !important;
+    border: 1px solid #393966 !important;
+    border-radius: 6px;
+}
+
+.bootstrap-page .form-control.bg-black {
+    background-color: #0f0f20 !important;
+}
+
+.bootstrap-page .form-control::placeholder {
+    color: #8888a8;
+}
+
+.bootstrap-page .form-select:focus,
+.bootstrap-page .form-control:focus {
+    border-color: #00e5ff !important;
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.2) !important;
+    background-color: #1b1b32;
+    color: #ffffff;
+}
+
+.bootstrap-page .form-label {
+    color: #d8d8ed !important;
+    font-weight: bold;
+}
+
+.bootstrap-page .form-check-input:checked {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+}
+
+/* Dark surfaces -> match .card / .create-account-form backgrounds */
+.bootstrap-page .bg-dark {
+    background-color: #17172a !important;
+}
+
+.bootstrap-page .border-secondary {
+    border-color: #303052 !important;
+}
+
+.bootstrap-page .text-light {
+    color: #f5f5f5 !important;
+}
+
+.bootstrap-page .text-secondary {
+    color: #c5c5d8 !important;
+}
+
+/* Headings */
+.bootstrap-page h1,
+.bootstrap-page h1.text-light {
+    color: #a78bfa !important;
+    letter-spacing: 1px;
+}
+
+.bootstrap-page h2,
+.bootstrap-page h2.text-light {
+    color: #a78bfa !important;
+}
+
+.bootstrap-page h3,
+.bootstrap-page .card-title ~ h3 {
+    color: #a855f7 !important;
+}
+
+.bootstrap-page .card-title {
+    color: #00e5ff !important;
+}
+
+/* Room / info cards -> match .room-card and .card */
+.bootstrap-page .card {
+    background-color: #151525 !important;
+    border: 1px solid #30304a !important;
+    border-radius: 16px !important;
+    padding: 0;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.bootstrap-page .card:hover {
+    transform: translateY(-8px);
+    border-color: #00e5ff !important;
+    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.15);
+}
+
+.bootstrap-page .card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Buttons -> match .room-button / .promo-button and outline actions */
+.bootstrap-page .btn-primary {
+    background-color: #00e5ff !important;
+    border-color: #00e5ff !important;
+    color: #080812 !important;
+    font-weight: bold;
+}
+
+.bootstrap-page .btn-primary:hover {
+    background-color: #a855f7 !important;
+    border-color: #a855f7 !important;
+    color: #ffffff !important;
+}
+
+.bootstrap-page .btn-outline-secondary {
+    color: #c5c5d8 !important;
+    border-color: #393966 !important;
+}
+
+.bootstrap-page .btn-outline-secondary:hover {
+    background-color: #29294a !important;
+    border-color: #00e5ff !important;
+    color: #00e5ff !important;
+}
+
+/* Footer -> match footer.main-footer */
+.bootstrap-page .main-footer {
+    background-color: #111122 !important;
+    border-top: 1px solid #29294a !important;
+    color: #8888a8 !important;
+}
+
+.bootstrap-page .main-footer p {
+    color: #8888a8 !important;
+}
