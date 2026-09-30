@@ -48,7 +48,10 @@
             <form action="submit_account.php" method="POST" class="bg-dark border border-secondary rounded-3 p-3 p-sm-4 p-lg-5" aria-label="Create account form">
                 <div class="mb-3">
                     <label for="username" class="form-label text-light">Username</label>
-                    <input type="text" class="form-control bg-black text-white border-secondary" id="username" name="username" placeholder="Enter username" required>
+                    <div class="input-group">
+                        <span class="input-group-text bg-dark text-white border-secondary">@</span>
+                        <input type="text" class="form-control bg-black text-white border-secondary" id="username" name="username" placeholder="Enter username" required>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label text-light">Email</label>
@@ -58,6 +61,21 @@
                     <label for="password" class="form-label text-light">Password</label>
                     <input type="password" class="form-control bg-black text-white border-secondary" id="password" name="password" placeholder="Create a password" required>
                 </div>
+                <fieldset class="mb-3">
+                    <legend class="form-label fs-6">Favourite zone</legend>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="zone" id="zoneStandard" value="standard" checked>
+                        <label class="form-check-label text-secondary" for="zoneStandard">Standard</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="zone" id="zoneVip" value="vip">
+                        <label class="form-check-label text-secondary" for="zoneVip">VIP</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="zone" id="zonePs" value="ps">
+                        <label class="form-check-label text-secondary" for="zonePs">PS Room</label>
+                    </div>
+                </fieldset>
                 <div class="form-check mb-4">
                     <input class="form-check-input" type="checkbox" id="terms" required>
                     <label class="form-check-label text-secondary" for="terms">I agree to the club rules.</label>
@@ -87,7 +105,8 @@
 <footer class="main-footer mt-5 py-4">
     <div class="container text-center">
         <p class="mb-1">Team Members: Sultan Uazhanov, Kaisar Arysbek, Dias Turdaly</p>
-        <p class="mb-0">&copy; 2026 FortGame CyberClub. All rights reserved.</p>
+        <p class="mb-1">&copy; 2026 FortGame CyberClub. All rights reserved.</p>
+        <p class="mb-0"><a class="room-link" href="responsive.html">Media Queries demo (Tasks 1-2)</a></p>
     </div>
 </footer>
 
