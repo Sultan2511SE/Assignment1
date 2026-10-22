@@ -462,3 +462,122 @@ body.bootstrap-page {
     .bootstrap-page .card:hover,
     .bootstrap-page .border.rounded.bg-dark:hover { transform: none; }
 }
+/* ==========================================================
+   Task 2. Accordion (FAQ) — contact.html
+   ========================================================== */
+.bootstrap-page .faq {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.bootstrap-page .faq-item {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.bootstrap-page .faq-item.is-open { border-color: var(--cyan); }
+
+.bootstrap-page .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.bootstrap-page .faq-question:hover { color: var(--cyan); }
+
+.bootstrap-page .faq-icon {
+    flex-shrink: 0;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--cyan);
+    transition: transform 0.3s ease;
+}
+
+.bootstrap-page .faq-item.is-open .faq-icon { transform: rotate(45deg); }
+
+/* hidden by default; JS sets max-height to the real height when opened */
+.bootstrap-page .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.bootstrap-page .faq-answer-text {
+    margin: 0;
+    padding: 0 1.25rem 1.1rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================
+   Task 3. Popup subscription form — index.html
+   ========================================================== */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: rgba(5, 5, 14, 0.78);
+    opacity: 0;
+    visibility: hidden;            /* hidden by default */
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.popup-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-box {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 1.75rem 1.5rem 1.5rem;
+    background-color: var(--surface-2);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow), var(--glow);
+    color: var(--text);
+    transform: translateY(16px) scale(0.97);
+    transition: transform 0.25s ease;
+}
+
+.popup-overlay.is-open .popup-box { transform: none; }
+
+.popup-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: 0;
+    color: var(--text-muted);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.popup-close:hover { color: var(--cyan); }
+
+.popup-box .form-label { color: var(--text); }
+
+body.popup-open { overflow: hidden; }   /* no page scroll behind the popup */
