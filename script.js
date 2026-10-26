@@ -89,3 +89,66 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDateTime();
     setInterval(updateDateTime, 1000);
 });
+
+
+const cyberClubData = {
+    clubName: "FortGame CyberClub",
+    clubAddress: "Astana, Kazakhstan",
+    vipSlotsLeft: 5,
+    
+    fetchClubStatus: function() {
+        return `Club: ${this.clubName} | Available VIP Slots: ${this.vipSlotsLeft}`;
+    },
+    
+    reserveSlot: function() {
+        if (this.vipSlotsLeft > 0) {
+            this.vipSlotsLeft--;
+            return true;
+        }
+        return false;
+    }
+};
+
+const pricingHeader = document.querySelector('main > section:first-child');
+if (pricingHeader) {
+    const statusDiv = document.createElement('div');
+    statusDiv.id = 'fc-club-status-info';
+    statusDiv.className = 'text-info fw-bold mb-3';
+    statusDiv.textContent = cyberClubData.fetchClubStatus();
+    pricingHeader.appendChild(statusDiv);
+}
+
+const pricingPackages = [
+    { zone: "Standard Room", price: 1000, type: "standard" },
+    { zone: "VIP Room", price: 1800, type: "vip" },
+    { zone: "PS Room", price: 2000, type: "ps" }
+];
+
+pricingPackages.forEach(pkg => {
+    console.log(`Zone: ${pkg.zone}, Hourly Rate: ${pkg.price} KZT`);
+});
+
+const premiumZones = pricingPackages.filter(pkg => pkg.price > 1500);
+console.log("Premium Zones (>1500 KZT):", premiumZones);
+
+const notificationSound = new Audio('click.mp3');
+notificationSound.volume = 0.5;
+
+const interactiveElements = document.querySelectorAll('.btn, .room-link');
+
+interactiveElements.forEach(element => {
+    element.addEventListener('click', (event) => {
+        
+        notificationSound.currentTime = 0;
+        notificationSound.play().catch(() => {
+            
+        });
+
+        element.style.transition = "transform 0.15s ease";
+        element.style.transform = "scale(0.95)";
+        
+        setTimeout(() => {
+            element.style.transform = "scale(1)";
+        }, 150);
+    });
+}); 
