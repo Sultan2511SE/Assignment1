@@ -6,9 +6,12 @@
     <title>FortGame CyberClub - About Us</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/interactive.css">
+    <!-- theme.js runs before the page is drawn, so the saved Day/Night theme never flashes -->
+    <script src="js/theme.js"></script>
 </head>
 <body class="bootstrap-page">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary" aria-label="Main navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary" aria-label="Main navigation">
     <div class="container-fluid px-sm-2 px-lg-5">
         <a class="navbar-brand d-flex align-items-center" href="index.html">
             <img src="images/admin.jpg" alt="FortGame Logo" width="45" height="45" class="rounded-circle me-2">
@@ -21,13 +24,17 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="about.html" aria-current="page">About Us</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="create_acc.html">Create Account</a></li>
                 <li class="nav-item"><a class="nav-link" href="rooms.html">Gaming Rooms</a></li>
                 <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
             </ul>
-            <div class="d-flex gap-2 ms-lg-3">
+            <div class="d-flex align-items-center gap-2 ms-lg-3">
+                <!-- Day / Night switch: theme.js -->
+                <button type="button" id="themeToggle" class="tool-btn" aria-pressed="false" aria-label="Switch to day theme">
+                    <span class="tool-icon" aria-hidden="true">☀️</span>
+                </button>
                 <label class="visually-hidden" for="language">Language</label>
                 <select id="language" class="form-select form-select-sm bg-dark text-white border-secondary" aria-label="Language">
                     <option>EN</option><option>RU</option><option>KZ</option>
@@ -41,57 +48,50 @@
     <aside class="about-sidebar">
         <h2>FortGame</h2>
         <p>CyberClub in Astana</p>
-
         <a href="rooms.html">Gaming Rooms</a>
         <a href="pricing.html">Pricing</a>
         <a href="create_acc.html">Create Account</a>
     </aside>
+
     <section class="about-main">
         <h1>ABOUT FORTGAME CYBERCLUB</h1>
-
-        <p>
-            We provide the best atmosphere for casual gamers
-            and professional esports teams in Astana.
-        </p>
+        <p>We provide the best atmosphere for casual gamers and professional esports teams in Astana.</p>
 
         <div class="about-cards">
-
             <div class="card">
                 <h3>Our Mission</h3>
-                <p>
-                    To deliver top-tier gaming experiences with
-                    high-end hardware, 240Hz monitors, and
-                    comfortable ergonomic chairs.
-                </p>
+                <p>To deliver top-tier gaming experiences with high-end hardware, 240Hz monitors, and comfortable ergonomic chairs.</p>
             </div>
-
             <div class="card">
-                <h3>Location & Hours</h3>
+                <h3>Location &amp; Hours</h3>
                 <img src="images/5260.png" alt="Imanova 8" class="second-img">
                 <p>Open 24/7. Located in the heart of Astana. Visit us anytime for uninterrupted gaming sessions.</p>
             </div>
-
             <div class="card">
                 <h3>Gaming Spaces</h3>
-                <p>
-                    We have 120 seats: 80 in the main hall,
-                    20 VIP seats and 10 bootcamp seats.
-                </p>
+                <p>We have 120 seats: 80 in the main hall, 20 VIP seats and 10 bootcamp seats.</p>
             </div>
-
             <div class="card">
                 <h3>Bonuses</h3>
-                <p>
-                    Top up your balance from 2500 tenge
-                    and receive special certificates.
-                </p>
+                <p>Top up your balance from 2500 tenge and receive special certificates.</p>
             </div>
-
         </div>
-    </section>
 
-    </main>
-    <footer class="main-footer">
+        <!-- Read more: readmore.js toggles style.display of #moreContent -->
+        <div id="moreContent" class="more-content">
+            <h2 class="h4">More about the club</h2>
+            <ul>
+                <li>Every gaming PC uses Intel i9 processors and RTX graphics, with 144–240 Hz monitors.</li>
+                <li>The BootCamp zone is isolated, so esports teams can train without distractions.</li>
+                <li>Guests under 16 can stay until 22:00; after that, guests must be 16 or older.</li>
+                <li>Subscribe to our news on the Home page to get tournament announcements and special offers.</li>
+            </ul>
+        </div>
+        <button type="button" id="readMoreBtn" class="btn btn-outline-secondary mt-4" aria-expanded="false" aria-controls="moreContent">Read more</button>
+    </section>
+</main>
+
+<footer class="main-footer">
     <div class="container text-center">
         <p class="mb-1">Team Members: Sultan Uazhanov, Kaisar Arysbek, Dias Turdaly</p>
         <p class="mb-1">&copy; 2026 FortGame CyberClub. All rights reserved.</p>
@@ -100,5 +100,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/readmore.js"></script>
 </body>
 </html>

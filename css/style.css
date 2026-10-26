@@ -19,6 +19,14 @@
     --radius: 14px;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     --glow: 0 10px 34px rgba(0, 229, 255, 0.14);
+    /* added in Assignment 5 so the Day theme can override them */
+    --nav-bg: rgba(17, 17, 34, 0.92);
+    --input-bg: #0f0f20;
+    --label: #dcdcf0;
+    --hover-bg: #29294a;
+    --table-hover: #1d1d3d;
+    --promo-gradient: linear-gradient(135deg, #17172a, #251b37);
+    --on-accent: #080812;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -96,7 +104,7 @@ body.bootstrap-page {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(17, 17, 34, 0.92) !important;
+    background-color: var(--nav-bg) !important;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border) !important;
@@ -105,7 +113,7 @@ body.bootstrap-page {
 }
 
 .bootstrap-page .navbar-brand {
-    color: #fff !important;
+    color: var(--text) !important;
     font-weight: 800;
     font-size: 1.2rem;
     letter-spacing: 0.03em;
@@ -117,7 +125,7 @@ body.bootstrap-page {
 }
 
 .bootstrap-page .nav-link {
-    color: #fff !important;
+    color: var(--text) !important;
     font-weight: 600;
     padding: 0.5rem 0.85rem !important;
     border-radius: 8px;
@@ -140,12 +148,12 @@ body.bootstrap-page {
 .bootstrap-page .form-select,
 .bootstrap-page .form-control {
     background-color: var(--surface-2) !important;
-    color: #fff !important;
+    color: var(--text) !important;
     border: 1px solid var(--border-strong) !important;
     border-radius: 8px;
 }
 
-.bootstrap-page .form-control.bg-black { background-color: #0f0f20 !important; }
+.bootstrap-page .form-control.bg-black { background-color: var(--input-bg) !important; }
 .bootstrap-page .form-control::placeholder { color: var(--text-dim); }
 
 .bootstrap-page .form-select:focus,
@@ -154,7 +162,7 @@ body.bootstrap-page {
     box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.18) !important;
 }
 
-.bootstrap-page .form-label { color: #dcdcf0 !important; font-weight: 600; }
+.bootstrap-page .form-label { color: var(--label) !important; font-weight: 600; }
 
 .bootstrap-page .form-check-input:checked {
     background-color: var(--violet-strong);
@@ -213,7 +221,7 @@ body.bootstrap-page {
 .bootstrap-page .promo-button {
     background-color: var(--cyan) !important;
     border-color: var(--cyan) !important;
-    color: #080812 !important;
+    color: var(--on-accent) !important;
 }
 
 .bootstrap-page .btn-primary:hover,
@@ -239,7 +247,7 @@ body.bootstrap-page {
 }
 
 .bootstrap-page .btn-outline-secondary:hover {
-    background-color: #29294a !important;
+    background-color: var(--hover-bg) !important;
     border-color: var(--cyan) !important;
     color: var(--cyan) !important;
 }
@@ -270,11 +278,11 @@ body.bootstrap-page {
 
 .promo-section .card {
     padding: 1.75rem;
-    background-image: linear-gradient(135deg, #17172a, #251b37);
+    background-image: var(--promo-gradient);
     margin: 0;
 }
 
-.promo-section .card h3 { color: #fff !important; margin-bottom: 0.5rem; }
+.promo-section .card h3 { color: var(--text) !important; margin-bottom: 0.5rem; }
 
 /* ---------- About Us ---------- */
 .about-layout {
@@ -312,7 +320,7 @@ body.bootstrap-page {
 }
 
 .about-sidebar a {
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
     font-weight: 600;
     padding: 10px 12px;
@@ -321,7 +329,7 @@ body.bootstrap-page {
 }
 
 .about-sidebar a:hover {
-    background-color: #29294a;
+    background-color: var(--hover-bg);
     color: var(--cyan);
 }
 
@@ -367,11 +375,14 @@ body.bootstrap-page {
 /* ---------- Прайс, контакты ---------- */
 .pricing-table {
     --bs-table-bg: transparent;
-    --bs-table-hover-bg: #1d1d3d;
+    --bs-table-hover-bg: var(--table-hover);
+    --bs-table-color: var(--text);
+    --bs-table-hover-color: var(--text);
+    --bs-table-border-color: var(--border);
 }
 
 .pricing-table th {
-    background-color: #1a1a35 !important;
+    background-color: var(--surface-2) !important;
     color: #8b5cf6;
     font-size: 1.05rem;
     white-space: nowrap;
@@ -399,37 +410,6 @@ body.bootstrap-page {
 }
 
 .room-link:hover { color: #00f7ff; text-decoration: underline; }
-
-/* ---------- Карусель ---------- */
-.club-carousel {
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    background-color: #000;
-}
-
-.club-carousel .carousel-item img {
-    height: clamp(220px, 50vw, 480px);
-    object-fit: cover;
-}
-
-.club-carousel .carousel-caption {
-    left: 0; right: 0; bottom: 0;
-    padding: 2.5rem 3.5rem 2.75rem;
-    background: linear-gradient(to top, rgba(8, 8, 18, 0.92), rgba(8, 8, 18, 0));
-}
-
-.club-carousel .carousel-caption h3 { color: #fff !important; margin-bottom: 0.25rem; }
-.club-carousel .carousel-caption p { color: #e2e2f0 !important; font-size: 0.95rem; }
-
-.club-carousel .carousel-indicators [data-bs-target] {
-    width: 10px; height: 10px; border-radius: 50%; border: 0;
-    background-color: var(--cyan);
-}
-
-.club-carousel .carousel-control-prev,
-.club-carousel .carousel-control-next { width: 9%; }
 
 /* ---------- Форма: input-group и radio ---------- */
 .bootstrap-page .input-group-text {

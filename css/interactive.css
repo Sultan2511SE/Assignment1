@@ -1,0 +1,202 @@
+/* ==========================================================
+   interactive.css — styles for Assignment 5 (Part 1)
+   1. Day theme (CSS variables)   4. Rating stars (rooms)
+   2. Theme button                5. Gallery (rooms)
+   3. Helpers that replaced       6. Read more (about)
+      the old inline styles
+   ========================================================== */
+
+/* ---------- 1. Day theme ----------
+   style.css defines every colour as a variable in :root (night).
+   When theme.js adds class "theme-day" to <html>, the same
+   variables get light values, so the whole site changes. */
+html.theme-day {
+    --bg: #f4f5fb;
+    --surface: #ffffff;
+    --surface-2: #eef0f8;
+    --surface-3: #e8eaf4;
+    --border: #d6d9ea;
+    --border-strong: #c2c6de;
+    --text: #16162a;
+    --text-muted: #4b4b68;
+    --text-dim: #6b6b86;
+    --violet: #6d28d9;
+    --violet-strong: #7c3aed;
+    --purple: #9333ea;
+    --cyan: #0e7490;
+    --shadow: 0 8px 24px rgba(22, 22, 42, 0.08);
+    --glow: 0 10px 30px rgba(14, 116, 144, 0.16);
+    --nav-bg: rgba(255, 255, 255, 0.92);
+    --input-bg: #ffffff;
+    --label: #2a2a44;
+    --hover-bg: #e4e7f5;
+    --table-hover: #f0f2fa;
+    --promo-gradient: linear-gradient(135deg, #ffffff, #efe9ff);
+    --on-accent: #ffffff;
+    --star-off: #c9cbe0;
+}
+
+:root {
+    --star-off: #3d3d66;
+    --star-on: #fbbf24;
+}
+
+/* Bootstrap classes with hard-coded white text */
+html.theme-day .text-white { color: var(--text) !important; }
+html.theme-day .navbar-toggler-icon { filter: invert(1); }
+.bootstrap-page .text-info { color: var(--cyan) !important; }
+
+/* style.css sizes every h2 the same; keep Bootstrap's .h4/.h6 size classes working */
+.bootstrap-page h2.h4 { font-size: 1.4rem; }
+.bootstrap-page h2.h6 { font-size: 1rem; }
+
+/* ---------- 2. Theme button in the navbar ---------- */
+.tool-btn {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    display: inline-grid;
+    place-items: center;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: 10px;
+    font-size: 1.05rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.tool-btn:hover {
+    border-color: var(--cyan);
+    background-color: var(--hover-bg);
+}
+
+/* ---------- 3. Helpers (were inline style="" before) ---------- */
+.team-about { max-width: 800px; margin: 0 auto 20px; }
+.team-about h4 { color: var(--violet) !important; }
+.accent-cyan { color: var(--cyan); font-weight: 700; }
+.accent-purple { color: var(--purple); font-weight: 700; }
+.contact-link { color: var(--cyan); text-decoration: none; }
+.contact-link:hover { text-decoration: underline; }
+.price-hourly { color: var(--cyan); }
+.price-night { color: var(--purple); }
+.bootstrap-page .cta-card { background-image: var(--promo-gradient); }
+
+/* ---------- 4. Rating stars ---------- */
+.rating {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+}
+
+.rating-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.stars { display: inline-flex; gap: 2px; }
+
+.star {
+    padding: 0 2px;
+    background: none;
+    border: 0;
+    font-size: 1.7rem;
+    line-height: 1;
+    color: var(--star-off);
+    cursor: pointer;
+}
+
+.star:hover { color: #fcd34d; }
+
+/* added by rating.js to the selected stars */
+.star.is-active {
+    color: var(--star-on);
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.45);
+}
+
+.bootstrap-page .rating-message {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ---------- 5. Gallery ---------- */
+.gallery-main {
+    position: relative;
+    margin: 0;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-color: #000;
+}
+
+.gallery-main img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 50vw, 480px);
+    object-fit: cover;
+}
+
+.gallery-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2.5rem 1.5rem 1.25rem;
+    background: linear-gradient(to top, rgba(8, 8, 18, 0.92), rgba(8, 8, 18, 0));
+}
+
+/* the caption sits on a dark photo, so it stays light in both themes */
+.gallery-caption h3 { color: #fff !important; margin: 0.4rem 0 0.15rem; }
+.gallery-caption p { color: #e2e2f0 !important; font-size: 0.95rem !important; }
+
+.gallery-counter {
+    display: inline-block;
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    background-color: rgba(0, 229, 255, 0.2);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.gallery-thumbs {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.85rem 2px 0.5rem;
+    overflow-x: auto;
+}
+
+.gallery-thumb {
+    flex: 0 0 auto;
+    width: 96px;
+    height: 64px;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    background: none;
+    opacity: 0.55;
+    cursor: pointer;
+}
+
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumb:hover { opacity: 0.9; }
+
+/* added by gallery.js to the selected thumbnail */
+.gallery-thumb.is-active { opacity: 1; border-color: var(--cyan); }
+
+/* ---------- 6. Read more (about page) ---------- */
+.more-content {
+    margin-top: 28px;
+    padding: 1.4rem 1.6rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--violet);
+    border-radius: var(--radius);
+}
+
+.more-content li { color: var(--text-muted); margin-bottom: 0.4rem; }
