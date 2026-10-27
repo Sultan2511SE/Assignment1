@@ -109,13 +109,28 @@ const cyberClubData = {
     }
 };
 
-const pricingHeader = document.querySelector('main > section:first-child');
+// only on the pricing page (script.js is also loaded on create_acc.html)
+const pricingTable = document.querySelector('.pricing-table');
+const pricingHeader = pricingTable ? document.querySelector('main > section:first-child') : null;
 if (pricingHeader) {
     const statusDiv = document.createElement('div');
     statusDiv.id = 'fc-club-status-info';
     statusDiv.className = 'text-info fw-bold mb-3';
     statusDiv.textContent = cyberClubData.fetchClubStatus();
     pricingHeader.appendChild(statusDiv);
+
+    // the reserveSlot() method changes the object, then the page shows the new value
+    const reserveBtn = document.createElement('button');
+    reserveBtn.type = 'button';
+    reserveBtn.className = 'btn btn-primary btn-sm';
+    reserveBtn.textContent = 'Reserve a VIP slot';
+    reserveBtn.addEventListener('click', function () {
+        const reserved = cyberClubData.reserveSlot();
+        statusDiv.textContent = reserved
+            ? cyberClubData.fetchClubStatus()
+            : 'Sorry, no VIP slots left for today.';
+    });
+    pricingHeader.appendChild(reserveBtn);
 }
 
 const pricingPackages = [
@@ -131,6 +146,23 @@ pricingPackages.forEach(pkg => {
 const premiumZones = pricingPackages.filter(pkg => pkg.price > 1500);
 console.log("Premium Zones (>1500 KZT):", premiumZones);
 
+// for loop: show the premium zones as a list on the pricing page
+if (pricingHeader) {
+    const premiumTitle = document.createElement('p');
+    premiumTitle.className = 'mt-3 mb-1 fw-bold';
+    premiumTitle.textContent = 'Premium zones (more than 1 500 KZT/h):';
+
+    const premiumList = document.createElement('ul');
+    premiumList.className = 'premium-list';
+    for (let i = 0; i < premiumZones.length; i++) {
+        const item = document.createElement('li');
+        item.textContent = premiumZones[i].zone + ' — ' + premiumZones[i].price + ' KZT/h';
+        premiumList.appendChild(item);
+    }
+
+    pricingHeader.append(premiumTitle, premiumList);
+}
+
 const notificationSound = new Audio('click.mp3');
 notificationSound.volume = 0.5;
 
@@ -141,7 +173,7 @@ interactiveElements.forEach(element => {
         
         notificationSound.currentTime = 0;
         notificationSound.play().catch(() => {
-            
+            // the browser blocked audio (no user interaction yet) — ignore
         });
 
         element.style.transition = "transform 0.15s ease";
