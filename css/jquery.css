@@ -1,0 +1,162 @@
+/* ==========================================================
+   jquery.css — styles for Assignment 6 (jQuery)
+   Part 1: search box, autocomplete dropdown, games list,
+   search highlighting. Uses the same CSS variables as
+   style.css, so the Day/Night theme works automatically.
+   ========================================================== */
+
+/* ---------- Search box (Tasks 1-3) ---------- */
+.search-box {
+    position: relative;
+}
+
+.bootstrap-page .search-input {
+    padding: 0.75rem 2.75rem 0.75rem 2.6rem;
+    border-radius: 999px;
+    font-size: 1rem;
+}
+
+/* hide the browser's own "x" in type="search", we have our own button */
+.search-input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+
+.search-icon {
+    position: absolute;
+    left: 0.95rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.search-clear {
+    position: absolute;
+    right: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 1.4rem;
+    line-height: 1;
+}
+.search-clear:hover,
+.search-clear:focus-visible { color: var(--cyan); background-color: var(--hover-bg); }
+
+.search-status {
+    min-height: 1.5em;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+/* ---------- Task 2. Autocomplete dropdown ---------- */
+.suggestions {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0.35rem;
+    list-style: none;
+    background-color: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius, 14px);
+    box-shadow: var(--shadow);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.suggestion,
+.suggestion-empty {
+    padding: 0.55rem 0.9rem;
+    border-radius: 10px;
+    color: var(--text);
+}
+
+.suggestion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+/* small label on the right: Game / Genre / Platform */
+.suggestion-kind {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+}
+.suggestion.is-active {
+    background-color: var(--hover-bg);
+    color: var(--cyan);
+}
+
+.suggestion-empty {
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+/* the typed part of a suggestion is shown in bold */
+.suggestion-match {
+    padding: 0;
+    background: none;
+    color: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--cyan);
+    text-underline-offset: 3px;
+}
+
+/* ---------- Task 1. Games library cards ---------- */
+.game-card {
+    padding: 1rem 1.1rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius, 14px);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.game-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-2px);
+}
+
+.game-title { color: var(--text); }
+
+.game-tag,
+.game-platform {
+    display: inline-block;
+    margin-top: 0.25rem;
+    padding: 0.1rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+.game-tag {
+    color: var(--violet);
+    border: 1px solid var(--violet);
+}
+.game-platform {
+    color: var(--text-muted);
+    background-color: var(--surface-2);
+}
+
+/* ---------- Task 3. Search highlighting (FAQ) ---------- */
+mark.search-highlight {
+    padding: 0 0.15em;
+    border-radius: 4px;
+    background-color: #fde047;
+    color: #16162a;
+    box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.6);
+}
+
+.faq-item {
+    transition: opacity 0.2s ease;
+}
+.faq-item.faq-dimmed { opacity: 0.4; }
