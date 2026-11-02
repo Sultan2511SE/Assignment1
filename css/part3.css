@@ -1,0 +1,54 @@
+/* Task 7. Toast */
+#toastContainer {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: min(320px, calc(100vw - 2rem));
+}
+.toast-msg {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    color: #fff;
+    background: #1f2430;
+    border-left: 5px solid #2ecc71;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.toast-error { border-left-color: #ff5a5f; }
+
+/* Task 8. Copy button */
+.copy-btn {
+    position: relative;
+    width: 1.9rem;
+    height: 1.9rem;
+    margin-left: 0.4rem;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+.copy-btn:hover { background: rgba(255, 255, 255, 0.12); }
+.copy-btn.is-copied { color: #2ecc71; border-color: #2ecc71; }
+.copy-tip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.25rem 0.55rem;
+    border-radius: 6px;
+    background: #111;
+    color: #fff;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* Task 9. Lazy images */
+img.lazy { opacity: 0; transition: opacity 0.5s; }
+img.lazy.is-loaded { opacity: 1; }
