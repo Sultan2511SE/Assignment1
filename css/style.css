@@ -561,3 +561,14 @@ body.bootstrap-page {
 .popup-box .form-label { color: var(--text); }
 
 body.popup-open { overflow: hidden; }   /* no page scroll behind the popup */
+
+#scrollProgressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px; /* Чуть толще для заметности */
+  width: 0%;
+  background: #00ff88; /* Яркий чисто-зеленый цвет для проверки */
+  z-index: 99999; /* Максимальный приоритет слоя */
+  transition: width 0.1s ease-out;
+}

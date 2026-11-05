@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="css/interactive.css">
     <link rel="stylesheet" href="css/jquery.css">
     <!-- theme.js runs before the page is drawn, so the saved Day/Night theme never flashes -->
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/theme.js"></script>
     <!-- Assignment 6 · Task 0: jQuery from the CDN, then our jQuery code -->
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script src="js/jquery-script.js"></script>
 </head>
 <body class="bootstrap-page">
+<div id="scrollProgressBar"></div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary" aria-label="Main navigation">
     <div class="container-fluid px-sm-2 px-lg-5">
         <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -154,6 +155,73 @@
             </div>
         </div>
     </section>
+
+    <!-- ================= TASK 5: Animated Number Counter ================= -->
+<section class="my-5 text-center">
+    <h2 class="mb-4">FortGame in Numbers</h2>
+    <div class="row g-4 justify-content-center">
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded bg-dark text-white shadow-sm">
+                <h3 class="display-5 fw-bold text-primary counter" data-target="2500">0</h3>
+                <p class="text-secondary mb-0">Active Gamers</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded bg-dark text-white shadow-sm">
+                <h3 class="display-5 fw-bold text-primary counter" data-target="80">0</h3>
+                <p class="text-secondary mb-0">Top Gaming PCs</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded bg-dark text-white shadow-sm">
+                <h3 class="display-5 fw-bold text-primary counter" data-target="150">0</h3>
+                <p class="text-secondary mb-0">Tournaments Held</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded bg-dark text-white shadow-sm">
+                <h3 class="display-5 fw-bold text-primary counter" data-target="99">0</h3>
+                <p class="text-secondary mb-0">Satisfaction Rate %</p>
+            </div>
+        </div>
+    </div>
+
+<!-- ================= END TASK 5 ================= -->
+
+<!-- ================= TASK 6: Form with Loading Spinner ================= -->
+<section class="my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <div class="p-4 border rounded bg-dark text-white shadow-sm">
+                <h3 class="text-center mb-3">Book a Gaming PC</h3>
+                <form id="bookingForm">
+                    <div class="mb-3">
+                        <label for="bookName" class="form-label">Gamer Nickname</label>
+                        <input type="text" id="bookName" class="form-control" placeholder="Enter your nickname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bookRoom" class="form-label">Zone</label>
+                        <select id="bookRoom" class="form-select bg-dark text-white border-secondary">
+                            <option>Standard Zone</option>
+                            <option>BootCamp VIP</option>
+                            <option>Console Lounge</option>
+                        </select>
+                    </div>
+                    <!-- Кнопка со спиннером -->
+                    <button type="submit" id="bookSubmitBtn" class="btn btn-primary w-100">
+                        Submit Booking
+                    </button>
+                </form>
+                <div id="bookingSuccess" class="alert alert-success mt-3 d-none text-center" role="status">
+                    Booking confirmed successfully!
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================= END TASK 6 ================= -->  
+
+
 </main>
 
 <div class="popup-overlay" id="subscribePopup" aria-hidden="true">

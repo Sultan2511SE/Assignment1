@@ -184,3 +184,55 @@ interactiveElements.forEach(element => {
         }, 150);
     });
 }); 
+
+$(document).ready(function () {
+    console.log("jQuery is ready!");
+
+    // ==========================================
+    // Task 5. Animated Number Counter
+    // ==========================================
+    $('.counter').each(function () {
+        var $this = $(this);
+        var targetValue = parseInt($this.attr('data-target'), 10);
+
+        $({ count: 0 }).animate({
+            count: targetValue
+        }, {
+            duration: 2000,
+            easing: 'swing',
+            step: function () {
+                $this.text(Math.floor(this.count));
+            },
+            complete: function () {
+                $this.text(this.count + "+");
+            }
+        });
+    });
+
+    // ==========================================
+    // Task 6. Loading spinner on Submit
+    // ==========================================
+    $('#bookingForm').on('submit', function (e) {
+        e.preventDefault(); // отменяем перезагрузку
+
+        var $btn = $('#bookSubmitBtn');
+        var originalText = $btn.html();
+
+        // 1. Показываем спиннер и текст
+        // 2. Блокируем кнопку от повторного клика
+        $btn.prop('disabled', true).html(
+            '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Please wait...'
+        );
+
+        // Имитируем ответ сервера с задержкой (2.5 сек)
+        setTimeout(function () {
+            // Возвращаем кнопку в исходное состояние
+            $btn.prop('disabled', false).html(originalText);
+            
+            // Очищаем форму и показываем результат
+            $('#bookingSuccess').removeClass('d-none').hide().fadeIn(300);
+            $('#bookingForm')[0].reset();
+        }, 2500);
+    });
+
+});
